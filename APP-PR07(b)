@@ -1,0 +1,19 @@
+#Basic
+import threading
+import time
+
+def task(name):
+    print(f"process {name} is started")
+    time.sleep(2)
+    print(f"process {name} is finished")
+    
+p1=threading.Thread(target=task, args=("01",))
+p2=threading.Thread(target=task, args=("02",))
+
+p1.start()
+p2.start()
+
+p1.join()
+p2.join()
+
+print("Completed execution of main and threads")
